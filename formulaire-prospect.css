@@ -441,6 +441,35 @@ body::before {
   background: var(--soft-t);
 }
 
+/* ── ERREURS DE VALIDATION SUR LES CHAMPS ── */
+.field-error {
+  border-color: #c0392b !important;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.1) !important;
+}
+.group-error {
+  outline: 2px solid rgba(192,57,43,0.35);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* ── PANNEAU VALIDATION (champs manquants) ── */
+.validation-panel {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: rgba(212,47,47,0.07);
+  border: 1.5px solid rgba(212,47,47,0.25);
+  border-radius: 12px;
+  font-size: 0.83rem;
+  color: #c0392b;
+  text-align: left;
+  line-height: 1.6;
+}
+.validation-panel strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
 /* ── PANNEAU DE SECOURS (échec copie) ── */
 .fallback-panel {
   display: none;
