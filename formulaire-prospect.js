@@ -19,7 +19,9 @@ function collectAnswers() {
   };
   var getChecks = function(name) {
     var els = document.querySelectorAll('input[name="' + name + '"]:checked');
-    return els.length ? Array.from(els).map(function(cb) { return cb.value; }).join(', ') : '—';
+    return els.length ? Array.from(els).map(function(cb) {
+      return cb.closest('label').querySelector('span').textContent.trim();
+    }).join(', ') : '—';
   };
   return {
     nom:           get('f-nom')            || '—',
