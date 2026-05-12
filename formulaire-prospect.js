@@ -170,6 +170,47 @@ function valider() {
   return manquants;
 }
 
+/* ── EFFACEMENT DU ROUGE EN TEMPS RÉEL ── */
+function initClearOnFix() {
+
+  /* Champs texte / select : efface l'erreur dès qu'une valeur est saisie */
+  var champIds = ['f-nom','f-tel','f-email','f-ville','f-cp','f-type',
+                  'f-surface','f-couchages','f-etat','f-photos','f-annonce','f-declencheur'];
+  champIds.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input',  function() { el.classList.remove('field-error'); });
+    el.addEventListener('change', function() { el.classList.remove('field-error'); });
+  });
+
+  /* Radios : efface le contour rouge du groupe dès qu'un choix est fait */
+  ['experience','statut','copro','numero'].forEach(function(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var row = radio.closest('.badge-row');
+        if (row) row.classList.remove('group-error');
+      });
+    });
+  });
+
+  /* Cases à cocher : efface le contour rouge du groupe dès qu'une case est cochée */
+  ['obj','critere','jour','tranche'].forEach(function(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        if (document.querySelector('input[name="' + name + '"]:checked')) {
+          var row = cb.closest('.badge-row')
+                 || cb.closest('.days-row')
+                 || cb.closest('.slots-row');
+          if (row) row.classList.remove('group-error');
+        }
+      });
+    });
+  });
+}
+
+/* Lance les écouteurs au chargement de la page */
+document.addEventListener('DOMContentLoaded', initClearOnFix);
+
 /* ── ENVOI PAR EMAIL ── */
 function sendByEmail() {
   var btn      = document.getElementById('btn-send');
