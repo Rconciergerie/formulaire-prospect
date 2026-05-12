@@ -213,7 +213,7 @@ function initClearOnFix() {
    ici : l'événement est déjà passé quand le script s'exécute. */
 initClearOnFix();
 
-/* ── ENVOI PAR EMAIL ── */
+/* ── ÉTAPE 1 : VALIDATION ET AFFICHAGE DES OPTIONS ── */
 function sendByEmail() {
   var btn      = document.getElementById('btn-send');
   var btnIcon  = document.getElementById('btn-icon');
@@ -234,46 +234,75 @@ function sendByEmail() {
   }
   if (panelVal) panelVal.style.display = 'none';
 
-  /* Empêche les doubles clics */
+  /* Formulaire valide : bascule le bouton principal et révèle les options */
   btn.disabled = true;
+  btn.classList.remove('btn-action-primary');
+  btn.classList.add('btn-action-success');
+  btnIcon.textContent  = '✅';
+  btnTitle.textContent = 'Tout est bon ! Comment souhaitez-vous envoyer vos réponses ?';
+  btnSub.textContent   = 'Choisissez l\'option qui correspond à votre messagerie.';
+  document.getElementById('panel-options').style.display = 'flex';
+}
 
+/* ── ÉTAPE 2A : APPLICATION EMAIL NATIVE ── */
+/* Copie les réponses dans le presse-papier + ouvre le client email */
+function ouvrirEmail() {
   var d              = collectAnswers();
   var subject        = 'Mon projet de location — ' + d.nom;
-  var text           = formatEmail(d);
   var encodedSubject = encodeURIComponent(subject);
+  var text           = formatEmail(d);
 
-  /* Prépare les liens messagerie */
-  document.getElementById('link-mailto').href =
-    'mailto:vroy.conciergerie@gmail.com?subject=' + encodedSubject;
-  document.getElementById('link-gmail').href =
-    'https://mail.google.com/mail/?view=cm&to=vroy.conciergerie@gmail.com&su=' + encodedSubject;
-
-  function onSuccess() {
-    btn.classList.remove('btn-action-primary');
-    btn.classList.add('btn-action-success');
-    btnIcon.textContent  = '✅';
-    btnTitle.textContent = 'Réponses copiées !';
-    btnSub.textContent   = 'Ouvrez votre messagerie ci-dessous et collez vos réponses (Ctrl+V ou ⌘+V).';
-    document.getElementById('panel-links').style.display = 'block';
+  function ouvrir() {
+    window.location.href = 'mailto:vroy.conciergerie@gmail.com?subject=' + encodedSubject;
+    document.getElementById('toast-email').style.display = 'block';
   }
 
   function onFailure() {
-    btn.classList.remove('btn-action-primary');
-    btn.classList.add('btn-action-warning');
-    btnIcon.textContent  = '⚠️';
-    btnTitle.textContent = 'La copie automatique n\'a pas fonctionné';
-    btnSub.textContent   = 'Sélectionnez et copiez le texte ci-dessous, puis ouvrez votre messagerie.';
-    var ta = document.getElementById('fallback-text');
-    ta.value = text;
-    document.getElementById('panel-failure').style.display = 'block';
-    ta.focus();
-    ta.select();
-    document.getElementById('panel-links').style.display = 'block';
+    afficherSecours(text);
+    window.location.href = 'mailto:vroy.conciergerie@gmail.com?subject=' + encodedSubject;
   }
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(onSuccess).catch(onFailure);
+    navigator.clipboard.writeText(text).then(ouvrir).catch(onFailure);
   } else {
     onFailure();
   }
+}
+
+/* ── ÉTAPE 2B : MESSAGERIE WEB (Gmail, Yahoo, Outlook…) ── */
+/* Copie un bloc complet : adresse + objet + réponses */
+function copierTout() {
+  var d       = collectAnswers();
+  var subject = 'Mon projet de location — ' + d.nom;
+  var bloc    = 'À : vroy.conciergerie@gmail.com\n'
+              + 'Objet : ' + subject + '\n'
+              + '──────────────────────────────\n\n'
+              + formatEmail(d);
+
+  function onSuccess() {
+    document.getElementById('toast-copy').style.display = 'block';
+  }
+
+  function onFailure() {
+    afficherSecours(bloc);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(bloc).then(onSuccess).catch(onFailure);
+  } else {
+    onFailure();
+  }
+}
+
+/* ── PANNEAU DE SECOURS (clipboard bloqué) ── */
+function afficherSecours(text) {
+  var panel = document.getElementById('panel-failure');
+  var ta    = document.getElementById('fallback-text');
+  if (!panel || !ta) return;
+  ta.value = text;
+  panel.style.display = 'block';
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

@@ -419,19 +419,36 @@
         <span id="validation-liste"></span>
       </div>
 
-      <!-- Panneau de secours : visible uniquement si la copie automatique échoue -->
-      <div class="fallback-panel" id="panel-failure">
-        <p>Sélectionnez et copiez le texte ci-dessous (appui long sur mobile → <em>Tout sélectionner</em> → <em>Copier</em>) :</p>
-        <textarea id="fallback-text" readonly></textarea>
+      <!-- Options d'envoi : visibles uniquement après validation -->
+      <div class="panel-options" id="panel-options">
+        <button type="button" class="btn-action btn-action-primary" onclick="ouvrirEmail()">
+          <span class="btn-icon">📨</span>
+          <span class="btn-text">
+            <strong>Ouvrir mon application email</strong>
+            <span>Votre logiciel email s'ouvre avec mon adresse et l'objet déjà remplis — collez vos réponses (Ctrl+V) et envoyez.</span>
+          </span>
+        </button>
+        <button type="button" class="btn-action btn-action-secondary" onclick="copierTout()">
+          <span class="btn-icon">📋</span>
+          <span class="btn-text">
+            <strong>Copier mes réponses (Gmail, Yahoo, Outlook…)</strong>
+            <span>Copie vos réponses et mon adresse email en un seul bloc — ouvrez un nouveau message, collez (Ctrl+V) : l'adresse apparaît dans le texte, déplacez-la dans le champ "À" et envoyez.</span>
+          </span>
+        </button>
       </div>
 
-      <!-- Liens messagerie : visibles uniquement après le clic -->
-      <div class="send-links-panel" id="panel-links">
-        <p class="send-links-label">Collez vos réponses dans le corps du message (Ctrl+V ou ⌘+V) :</p>
-        <div class="send-links">
-          <a href="#" id="link-mailto" class="send-link send-link-primary">📨 Application email</a>
-          <a href="#" id="link-gmail" class="send-link send-link-secondary" target="_blank">📬 Gmail</a>
-        </div>
+      <!-- Toasts de confirmation -->
+      <div class="toast toast-email" id="toast-email" style="display:none;">
+        📨 Votre application email s'ouvre — collez vos réponses (Ctrl+V ou ⌘+V) et envoyez.
+      </div>
+      <div class="toast toast-copy" id="toast-copy" style="display:none;">
+        ✅ Bloc copié ! Ouvrez un nouveau message, collez (Ctrl+V), déplacez l'adresse dans le champ "À" et envoyez.
+      </div>
+
+      <!-- Panneau de secours : visible uniquement si la copie automatique échoue -->
+      <div class="fallback-panel" id="panel-failure" style="display:none;">
+        <p>Sélectionnez et copiez le texte ci-dessous (appui long sur mobile → <em>Tout sélectionner</em> → <em>Copier</em>) :</p>
+        <textarea id="fallback-text" readonly></textarea>
       </div>
 
     </div>

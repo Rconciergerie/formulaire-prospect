@@ -393,52 +393,32 @@ body::before {
 }
 .btn-action-warning:hover { transform: none; box-shadow: none; }
 
-/* ── LIENS MESSAGERIE (après le clic) ── */
-.send-links-panel {
+/* ── OPTIONS D'ENVOI (après validation) ── */
+.panel-options {
   display: none;
-  margin-top: 20px;
-  text-align: center;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
 }
-.send-links-label {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-.send-links {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.send-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 26px;
+
+/* ── TOASTS DE CONFIRMATION ── */
+.toast {
+  margin-top: 14px;
+  padding: 13px 16px;
   border-radius: 12px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
-.send-link-primary {
-  background: var(--grad);
-  color: #fff;
+.toast-email {
+  background: rgba(10,143,130,0.09);
+  border: 1.5px solid rgba(10,143,130,0.25);
+  color: #0A8F82;
 }
-.send-link-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(91,47,212,0.3);
-}
-.send-link-secondary {
-  background: #fff;
-  color: var(--fg);
-  border: 1.5px solid var(--border);
-}
-.send-link-secondary:hover {
-  border-color: var(--teal);
-  background: var(--soft-t);
+.toast-copy {
+  background: rgba(91,47,212,0.07);
+  border: 1.5px solid rgba(91,47,212,0.2);
+  color: var(--purple);
 }
 
 /* ── ERREURS DE VALIDATION SUR LES CHAMPS ── */
