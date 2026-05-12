@@ -20,7 +20,8 @@ function collectAnswers() {
   var getChecks = function(name) {
     var els = document.querySelectorAll('input[name="' + name + '"]:checked');
     return els.length ? Array.from(els).map(function(cb) {
-      return cb.closest('label').querySelector('span').textContent.trim();
+      var span = cb.closest('label').querySelector('span');
+      return span ? span.textContent.trim() : cb.value;
     }).join(', ') : '—';
   };
   return {
@@ -94,12 +95,63 @@ function formatEmail(d) {
     + 'Envoyé via le formulaire R Conciergerie\n';
 }
 
+/* ── VALIDATION ── */
+function valider() {
+  var manquants = [];
+
+  /* Champs texte / select obligatoires */
+  var requis = [
+    { id: 'f-nom',       label: 'Prénom et nom' },
+    { id: 'f-tel',       label: 'Téléphone' },
+    { id: 'f-email',     label: 'Adresse email' },
+    { id: 'f-ville',     label: 'Ville' },
+    { id: 'f-cp',        label: 'Code postal' },
+    { id: 'f-type',      label: 'Type de logement' },
+    { id: 'f-surface',   label: 'Surface' },
+    { id: 'f-couchages', label: 'Capacité d\'accueil' },
+    { id: 'f-etat',      label: 'État du logement' },
+    { id: 'f-photos',    label: 'Photos du logement' },
+    { id: 'f-annonce',   label: 'Logement déjà en ligne' },
+    { id: 'f-declencheur', label: 'Pourquoi maintenant' },
+  ];
+  requis.forEach(function(champ) {
+    var el = document.getElementById(champ.id);
+    if (!el || !el.value.trim()) manquants.push(champ.label);
+  });
+
+  /* Groupes radio obligatoires */
+  if (!document.querySelector('input[name="experience"]:checked')) manquants.push('Situation actuelle');
+  if (!document.querySelector('input[name="statut"]:checked'))     manquants.push('Statut du logement');
+  if (!document.querySelector('input[name="copro"]:checked'))      manquants.push('Copropriété');
+  if (!document.querySelector('input[name="numero"]:checked'))     manquants.push('Déclaration mairie');
+
+  /* Groupes cases à cocher : au moins une sélection requise */
+  if (!document.querySelector('input[name="obj"]:checked'))     manquants.push('Motivations principales');
+  if (!document.querySelector('input[name="critere"]:checked')) manquants.push('Priorités de choix');
+  if (!document.querySelector('input[name="jour"]:checked'))    manquants.push('Jours disponibles');
+  if (!document.querySelector('input[name="tranche"]:checked')) manquants.push('Tranches horaires');
+
+  /* "Autre critère" : facultatif (les cases à cocher couvrent la réponse principale) */
+
+  return manquants;
+}
+
 /* ── ENVOI PAR EMAIL ── */
 function sendByEmail() {
   var btn      = document.getElementById('btn-send');
   var btnIcon  = document.getElementById('btn-icon');
   var btnTitle = document.getElementById('btn-title');
   var btnSub   = document.getElementById('btn-sub');
+
+  /* Validation avant envoi */
+  var manquants = valider();
+  if (manquants.length > 0) {
+    document.getElementById('panel-validation').style.display = 'block';
+    document.getElementById('validation-liste').textContent = manquants.join(', ');
+    document.getElementById('panel-validation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  document.getElementById('panel-validation').style.display = 'none';
 
   /* Empêche les doubles clics */
   btn.disabled = true;
