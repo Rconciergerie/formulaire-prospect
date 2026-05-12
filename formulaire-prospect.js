@@ -208,8 +208,10 @@ function initClearOnFix() {
   });
 }
 
-/* Lance les écouteurs au chargement de la page */
-document.addEventListener('DOMContentLoaded', initClearOnFix);
+/* Lance les écouteurs immédiatement — le script étant en bas du <body>,
+   le DOM est déjà prêt à ce stade. Ne pas utiliser DOMContentLoaded
+   ici : l'événement est déjà passé quand le script s'exécute. */
+initClearOnFix();
 
 /* ── ENVOI PAR EMAIL ── */
 function sendByEmail() {
