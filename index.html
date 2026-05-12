@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre projet de location — R Conciergerie</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="formulaire-prospect.css">
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="wrap">
+
+    <div class="logo-pill">
+      <svg width="157" height="33" viewBox="0 0 248 52" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hdr-g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#5B2FD4"/>
+            <stop offset="100%" stop-color="#0A8F82"/>
+          </linearGradient>
+          <linearGradient id="hdr-g2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#5B2FD4"/>
+            <stop offset="100%" stop-color="#0A8F82"/>
+          </linearGradient>
+        </defs>
+        <rect x="9" y="9" width="34" height="34" rx="8" transform="rotate(45 26 26)" fill="url(#hdr-g1)"/>
+        <text x="26" y="36" font-family="Georgia,serif" font-size="30" font-weight="bold" fill="white" text-anchor="middle">R</text>
+        <text x="62" y="34" font-family="Outfit,sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="url(#hdr-g2)">Conciergerie</text>
+      </svg>
+    </div>
+
+    <h1>Parlez-nous de votre <span class="g">logement</span></h1>
+    <p class="header-sub">Ce formulaire nous permet de mieux comprendre votre projet avant notre échange. Comptez 5 minutes — il n'y a pas de bonne ou mauvaise réponse.</p>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">4 ans</div>
+        <div class="stat-lbl">d'expérience en 77</div>
+        <div class="stat-sub">Expérience terrain depuis 2022</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4,94<span style="font-size:0.85rem;">/5</span></div>
+        <div class="stat-lbl">note moyenne</div>
+        <div class="stat-sub">Sur Airbnb & Booking.com</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20%</div>
+        <div class="stat-lbl">du CA hors ménage</div>
+        <div class="stat-sub">La TVA vous est offerte</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3 mois</div>
+        <div class="stat-lbl">d'essai</div>
+        <div class="stat-sub">Résiliable à tout moment si nous ne répondons pas à vos attentes</div>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro-card">
+      <p>Bonjour, merci de l'intérêt que vous portez à R Conciergerie. Pour que notre échange soit le plus utile possible, j'aurais besoin de quelques informations sur votre logement et votre projet. Vos réponses resteront strictement confidentielles et me permettront de vous faire une proposition parfaitement adaptée.</p>
+      <p class="signature">— Vincent, fondateur de R Conciergerie</p>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══ AVANTAGES ═══ -->
+<div class="wrap">
+  <div class="section-title">
+    <span class="chip chip-purple">Pourquoi R Conciergerie ?</span>
+  </div>
+  <div class="avantages-grid">
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Ancrage local</strong>
+        <span>Basés en Seine-et-Marne, en Île-de-France, nous connaissons votre marché mieux que quiconque.</span>
+      </div>
+    </div>
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Un seul interlocuteur</strong>
+        <span>Vincent s'occupe de tout de A à Z — vous n'avez qu'une seule personne à appeler.</span>
+      </div>
+    </div>
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Commission transparente</strong>
+        <span>20% de votre chiffre d'affaires, hors ménage. Le ménage est facturé au voyageur au prix coûtant — votre part n'est pas touchée. Et la TVA ? Elle vous est offerte.</span>
+      </div>
+    </div>
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Essai sans engagement</strong>
+        <span>3 mois pour tester notre service. Pendant cette période, vous pouvez partir à tout moment si nous ne répondons pas à vos attentes.</span>
+      </div>
+    </div>
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Disponibles 7j/7</strong>
+        <span>Vos voyageurs peuvent nous joindre à toute heure — vous dormez tranquille.</span>
+      </div>
+    </div>
+    <div class="avantage-item">
+      <div class="av-text">
+        <strong>Résultats prouvés</strong>
+        <span>Note 4,94/5 sur Airbnb. Vos voyageurs repartent satisfaits, vos revenus suivent.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FORMULAIRE ═══ -->
+<div class="wrap">
+  <form class="form-wrap" id="prospect-form" novalidate>
+
+    <!-- ── SECTION 1 : COORDONNÉES ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">1</div>
+        <div>
+          <h2>Vos coordonnées</h2>
+          <div class="section-sub">Pour que nous puissions vous recontacter</div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <span>Prénom et nom</span>
+          <input type="text" id="f-nom" placeholder="Ex : Marie Dupont">
+        </div>
+        <div class="field">
+          <span>Téléphone</span>
+          <input type="tel" id="f-tel" placeholder="06 …">
+        </div>
+        <div class="field full">
+          <span>Adresse email</span>
+          <input type="email" id="f-email" placeholder="prenom@exemple.com">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2 : LE LOGEMENT ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">2</div>
+        <div>
+          <h2>Votre logement</h2>
+          <div class="section-sub">Les informations de base sur le bien à nous confier</div>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <span>Ville</span>
+          <input type="text" id="f-ville" placeholder="Ex : Ozoir-la-Ferrière">
+        </div>
+        <div class="field">
+          <span>Code postal</span>
+          <input type="text" id="f-cp" placeholder="77…">
+        </div>
+        <div class="field">
+          <span>Type de logement</span>
+          <select id="f-type">
+            <option value="">— Choisir —</option>
+            <option>Studio (1 pièce)</option>
+            <option>Appartement 2 pièces</option>
+            <option>Appartement 3 pièces</option>
+            <option>Appartement 4 pièces et +</option>
+            <option>Maison</option>
+            <option>Loft / logement atypique</option>
+          </select>
+        </div>
+        <div class="field">
+          <span>Surface approximative (m²)</span>
+          <input type="number" id="f-surface" placeholder="Ex : 45">
+        </div>
+        <div class="field">
+          <span>Nombre de personnes qu'il peut accueillir</span>
+          <input type="number" id="f-couchages" placeholder="Ex : 4">
+        </div>
+        <div class="field">
+          <span>État actuel du logement</span>
+          <select id="f-etat">
+            <option value="">— Choisir —</option>
+            <option>Prêt à accueillir des voyageurs (meublé, bien équipé)</option>
+            <option>Meublé mais la décoration est à revoir</option>
+            <option>À meubler entièrement</option>
+            <option>Petits travaux à prévoir</option>
+            <option>Travaux importants à prévoir</option>
+          </select>
+        </div>
+        <div class="field">
+          <span>Avez-vous des photos du logement ?</span>
+          <select id="f-photos">
+            <option value="">— Choisir —</option>
+            <option>Oui, des photos professionnelles</option>
+            <option>Oui, des photos personnelles (smartphone…)</option>
+            <option>Non, pas encore</option>
+          </select>
+        </div>
+        <div class="field">
+          <span>Votre logement est-il déjà sur une plateforme ?</span>
+          <select id="f-annonce">
+            <option value="">— Choisir —</option>
+            <option>Non</option>
+            <option>Oui, sur Airbnb</option>
+            <option>Oui, sur Booking</option>
+            <option>Oui, sur Abritel / Vrbo</option>
+            <option>Oui, sur plusieurs plateformes</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3 : VOTRE PROJET ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">3</div>
+        <div>
+          <h2>Votre projet</h2>
+          <div class="section-sub">Mieux vous connaître pour mieux vous accompagner</div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">Quelle est votre situation actuelle avec ce logement ?</span>
+        <div class="badge-row">
+          <label><input type="radio" name="experience" value="nouveau"> <span>C'est un nouveau projet, je ne l'ai jamais loué</span></label>
+          <label><input type="radio" name="experience" value="deja-lcd"> <span>Je le loue déjà sur Airbnb / Booking</span></label>
+          <label><input type="radio" name="experience" value="ancien-bail"> <span>Je le louais en bail classique jusqu'ici</span></label>
+        </div>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">
+          Qu'est-ce qui vous motive principalement ?
+          <span class="q-hint">Plusieurs choix possibles</span>
+        </span>
+        <div class="badge-row">
+          <label><input type="checkbox" name="obj" value="revenus"> <span>Maximiser mes revenus locatifs</span></label>
+          <label><input type="checkbox" name="obj" value="tranquillite"> <span>Ne plus avoir à m'en occuper au quotidien</span></label>
+          <label><input type="checkbox" name="obj" value="distance"> <span>Tout piloter à distance (je ne suis pas souvent sur place)</span></label>
+          <label><input type="checkbox" name="obj" value="tester"> <span>Tester la location courte durée avant de décider</span></label>
+          <label><input type="checkbox" name="obj" value="complement"> <span>Me créer un complément de revenus régulier</span></label>
+        </div>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">
+          Qu'est-ce qui vous amène à chercher une conciergerie maintenant, plutôt qu'avant ?
+          <span class="q-hint">Quelques mots suffisent — c'est la question la plus utile pour moi</span>
+        </span>
+        <div class="field">
+          <textarea id="f-declencheur" placeholder="Ex : Je n'ai plus le temps de m'en occuper, je pars vivre à l'étranger, j'ai entendu que les revenus pouvaient être bons…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4 : CRITÈRES DE CHOIX ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">4</div>
+        <div>
+          <h2>Ce qui compte pour vous</h2>
+          <div class="section-sub">Pour que je puisse vous répondre sur ce qui est vraiment important à vos yeux</div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">
+          Dans le choix d'une conciergerie, quelles sont vos 2 ou 3 priorités ?
+          <span class="q-hint">Cochez ce qui compte le plus pour vous</span>
+        </span>
+        <div class="badge-row">
+          <label><input type="checkbox" name="critere" value="local"> <span>La proximité — quelqu'un de local, pas une grande enseigne nationale</span></label>
+          <label><input type="checkbox" name="critere" value="reactivite"> <span>La réactivité — être joignable rapidement en cas de problème</span></label>
+          <label><input type="checkbox" name="critere" value="prix"> <span>Le prix — payer le moins possible de commission</span></label>
+          <label><input type="checkbox" name="critere" value="reputation"> <span>La réputation — les avis et les références d'autres propriétaires</span></label>
+          <label><input type="checkbox" name="critere" value="service-complet"> <span>Le service complet — n'avoir à s'occuper de rien</span></label>
+          <label><input type="checkbox" name="critere" value="souplesse"> <span>La souplesse — pouvoir changer d'avis si ça ne convient pas</span></label>
+          <label><input type="checkbox" name="critere" value="transparence"> <span>La transparence — savoir exactement ce que je touche chaque mois</span></label>
+        </div>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">
+          Autre chose qui compte pour vous et que vous n'avez pas vu dans la liste ?
+          <span class="q-hint">Facultatif</span>
+        </span>
+        <div class="field">
+          <textarea id="f-criteres-autre" placeholder="Précisez ici si vous le souhaitez…" style="min-height:70px;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5 : POINTS ADMINISTRATIFS ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">5</div>
+        <div>
+          <h2>Quelques points administratifs</h2>
+          <div class="section-sub">Ne vous inquiétez pas si vous ne savez pas tout — nous ferons le point ensemble</div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">Comment décririez-vous votre logement ?</span>
+        <div class="badge-row">
+          <label><input type="radio" name="statut" value="rp"> <span>C'est mon logement principal (là où j'habite en ce moment)</span></label>
+          <label><input type="radio" name="statut" value="rp-libere"> <span>C'est mon logement actuel, mais je vais le quitter prochainement</span></label>
+          <label><input type="radio" name="statut" value="rs"> <span>C'est une résidence secondaire (vacances, pied-à-terre…)</span></label>
+          <label><input type="radio" name="statut" value="invest"> <span>C'est un bien que j'ai acquis pour le louer (investissement)</span></label>
+        </div>
+        <p class="hint">💡 Si c'est votre logement principal, la location courte durée est soumise à une limite légale (90 ou 120 nuits par an selon votre commune). Nous ferons le point ensemble lors de notre échange.</p>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">
+          Votre copropriété autorise-t-elle la location de courte durée ?
+          <span class="q-hint">Ce point figure généralement dans le règlement de copropriété</span>
+        </span>
+        <div class="badge-row">
+          <label><input type="radio" name="copro" value="oui"> <span>Oui, c'est autorisé</span></label>
+          <label><input type="radio" name="copro" value="non"> <span>Non, c'est interdit</span></label>
+          <label><input type="radio" name="copro" value="syndic-dit-non"> <span>On m'a dit que c'était interdit (syndic ou voisins)</span></label>
+          <label><input type="radio" name="copro" value="a-verifier"> <span>Je n'ai pas encore vérifié</span></label>
+          <label><input type="radio" name="copro" value="na"> <span>Maison ou logement sans copropriété</span></label>
+        </div>
+        <p class="hint-warn">💡 Si on vous a dit que c'était interdit : syndics et voisins se trompent très souvent sur ce point. C'est une question juridique technique — la grande majorité des anciens règlements de copropriété autorisent en réalité la location de courte durée. Ne concluez rien avant qu'on en discute ensemble.</p>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">
+          Avez-vous effectué une déclaration auprès de votre mairie ?
+          <span class="q-hint">Cette démarche est obligatoire pour louer légalement. Selon votre commune, vous recevrez un numéro d'enregistrement à afficher sur votre annonce, ou votre déclaration sera simplement enregistrée sans numéro associé.</span>
+        </span>
+        <div class="badge-row">
+          <label><input type="radio" name="numero" value="oui-numero"> <span>Oui, j'ai reçu un numéro d'enregistrement</span></label>
+          <label><input type="radio" name="numero" value="oui-sans-numero"> <span>Oui, j'ai fait la déclaration mais sans numéro</span></label>
+          <label><input type="radio" name="numero" value="non"> <span>Non, pas encore</span></label>
+          <label><input type="radio" name="numero" value="nsp"> <span>Je ne sais pas ce que c'est</span></label>
+        </div>
+        <p class="hint">Si vous n'avez encore rien fait, pas d'inquiétude — nous vous accompagnons dans les démarches.</p>
+      </div>
+    </div>
+
+    <!-- ── SECTION 6 : DISPONIBILITÉS ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="step-bubble">6</div>
+        <div>
+          <h2>Votre disponibilité pour un échange</h2>
+          <div class="section-sub">15 à 20 minutes en visio, ou plus selon votre besoin — depuis chez vous, sans déplacement</div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-label">Quels jours vous conviendraient ?
+          <span class="q-hint">Plusieurs choix possibles</span>
+        </span>
+        <div class="days-row">
+          <label><input type="checkbox" name="jour" value="Lundi"> Lundi</label>
+          <label><input type="checkbox" name="jour" value="Mardi"> Mardi</label>
+          <label><input type="checkbox" name="jour" value="Mercredi"> Mercredi</label>
+          <label><input type="checkbox" name="jour" value="Jeudi"> Jeudi</label>
+          <label><input type="checkbox" name="jour" value="Vendredi"> Vendredi</label>
+          <label><input type="checkbox" name="jour" value="Samedi"> Samedi</label>
+          <label><input type="checkbox" name="jour" value="Dimanche"> Dimanche</label>
+        </div>
+      </div>
+
+      <hr class="q-sep">
+
+      <div class="q-block">
+        <span class="q-label">Quelles tranches horaires vous conviendraient ?
+          <span class="q-hint">Plusieurs choix possibles</span>
+        </span>
+        <div class="slots-row">
+          <label><input type="checkbox" name="tranche" value="8h–10h"> 8h – 10h</label>
+          <label><input type="checkbox" name="tranche" value="10h–12h"> 10h – 12h</label>
+          <label><input type="checkbox" name="tranche" value="14h–16h"> 14h – 16h</label>
+          <label><input type="checkbox" name="tranche" value="16h–18h"> 16h – 18h</label>
+        </div>
+        <p class="hint-info">📹 L'échange se déroulera en Google Meet — un lien vous sera envoyé par email. WhatsApp est également possible si vous préférez.</p>
+      </div>
+    </div>
+
+    <!-- ── ACTIONS ── -->
+    <div class="actions-card">
+      <h3>Tout est prêt ? Envoyez-nous vos réponses</h3>
+      <p class="actions-sub">Un seul clic suffit — vos réponses seront copiées automatiquement, il ne vous restera qu'à les coller dans votre email.</p>
+      <div class="actions-buttons">
+
+        <!-- Bouton unique — change d'état après le clic -->
+        <button type="button" id="btn-send" class="btn-action btn-action-primary" onclick="sendByEmail()">
+          <span class="btn-icon" id="btn-icon">📧</span>
+          <span class="btn-text">
+            <strong id="btn-title">Envoyer mes réponses par email</strong>
+            <span id="btn-sub">Vos réponses seront copiées automatiquement — choisissez ensuite votre messagerie.</span>
+          </span>
+        </button>
+
+      </div>
+
+      <!-- Panneau de secours : visible uniquement si la copie automatique échoue -->
+      <div class="fallback-panel" id="panel-failure">
+        <p>Sélectionnez et copiez le texte ci-dessous (appui long sur mobile → <em>Tout sélectionner</em> → <em>Copier</em>) :</p>
+        <textarea id="fallback-text" readonly></textarea>
+      </div>
+
+      <!-- Liens messagerie : visibles uniquement après le clic -->
+      <div class="send-links-panel" id="panel-links">
+        <p class="send-links-label">Collez vos réponses dans le corps du message (Ctrl+V ou ⌘+V) :</p>
+        <div class="send-links">
+          <a href="#" id="link-mailto" class="send-link send-link-primary">📨 Application email</a>
+          <a href="#" id="link-gmail" class="send-link send-link-secondary" target="_blank">📬 Gmail</a>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="page-footer">
+  <p>© R Conciergerie — <strong>Vincent Roy</strong> — <a href="mailto:vroy.conciergerie@gmail.com" style="color:var(--teal);">vroy.conciergerie@gmail.com</a></p>
+  <p style="margin-top:6px;">Seine-et-Marne, Île-de-France · Vos données sont confidentielles et utilisées uniquement dans le cadre de votre projet</p>
+</footer>
+
+<script src="formulaire-prospect.js"></script>
+</body>
+</html>
